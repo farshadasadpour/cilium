@@ -627,9 +627,14 @@ following Routing mode (Native/Tunnel) and Tunnel Protocol.
 DSR Dispatch Mode  Native  Tunnel (Geneve)  Tunnel (VXLAN)
 ================== ======= ================ ==============
 Option (OPT)       ✅      ❌               ❌
+IPIP               ✅      ❌               ❌
 Geneve             ✅      ✅               ❌
 ================== ======= ================ ==============
 
+The IPIP dispatch additionally requires the service frontend port to be equal to the
+backend (target) port, since IPIP does not carry port information. It also requires
+either native routing or, when using annotation-based load balancing, ``bpf.lbModeAnnotation=true``.
+See :ref:`DSR mode with IPIP` for the full set of prerequisites and an example.
 
 .. _DSR mode with Option:
 
