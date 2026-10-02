@@ -864,8 +864,10 @@ from the latency improvements through the removed extra hop for replies, in part
 when TCP is the main transport for workloads.
 
 The mode setting ``loadBalancer.mode`` allows to control the behavior through the
-options ``dsr``, ``snat``, ``annotation``, and ``hybrid``. By default the ``snat``
-mode is used in the agent.
+options ``dsr``, ``snat``, and ``hybrid``. By default the ``snat`` mode is used in
+the agent. To select the mode per service instead, see
+`Annotation-based DSR and SNAT Mode`_ below, which relies on the separate
+``bpf.lbModeAnnotation=true`` setting.
 
 A Helm example configuration in a kube-proxy-free environment with DSR enabled in
 hybrid mode would look as follows:
